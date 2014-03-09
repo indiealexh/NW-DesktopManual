@@ -1,0 +1,15 @@
+{
+  "main": "index.html",
+  "name": "I&E SO Manual",
+  "version": "0.1.0",
+  "window": {
+    "title": "I&E SO Manual",
+    "toolbar": false,
+    "frame": false,
+    "width": 320,
+    "height": 600,
+    "min_width": 320,
+    "min_height": 350,
+    "show": false
+  }
+}
