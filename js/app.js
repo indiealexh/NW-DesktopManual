@@ -1,13 +1,12 @@
-var gui = require('nw.gui');
-var win = gui.Window.get();
-var fs = require('fs');
-var path = require('path');
-var PagesList = GetPagesList();
-var curPage = "Tutorial";
+var gui = require('nw.gui');//Require the NodeWebkit Gui Libary
+var fs = require('fs');//Require the Node FileSystem Libary
+var path = require('path');//Require the Node Path Libary
 
-SetPage("Tutorial");
+var win = gui.Window.get();//Set the window variable for the current window
+var PagesList = GetPagesList();//Compile list of files in the "pages" folder and place in array for later use
+var curPage = "Tutorial";//Set the main or first page
 
-//LoadPage("./pages/"+PagesList[0][0]);
+SetPage(curPage);//Load and display the first page, you can also set this to display the last page veiwed on last run.
 
 //Get list of help pages and their titles base on file name
 function GetPagesList() {
