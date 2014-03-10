@@ -9,6 +9,12 @@ A very basic set of code based on node-webkit and the foundation framework creat
 
 You will need to download the node-webkit binarys from https://github.com/rogerwang/node-webkit to run the code.
 
+Current Features:
+
+- Auto-Generated Menus based on artciles in the 'Pages' folder
+- Large and small modes
+- Large and small mode menus for better usability in all situations.
+
 Node-Webkit
 ---
 [Node-Webkit](https://github.com/rogerwang/node-webkit) is an opensource project that combines the power of the Chromium browser (google chrome) and NodeJS to create fast, easy to create desktop applications accross Windows, Mac and linux without the need for additional dependancies.
