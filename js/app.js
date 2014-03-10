@@ -5,8 +5,8 @@ var path = require('path');
 var PagesList = GetPagesList();
 var curPage = "Tutorial";
 SetPage("Tutorial");
-//Get list of help pages and their titles base on file name
 
+//Get list of help pages and their titles base on file name
 function GetPagesList()
 {
     var list = []; // Initialise array
@@ -20,6 +20,7 @@ function GetPagesList()
     return list;
 }
 
+//Build the html of menu items from the Pages list.
 function RenderMenu()
 {
     var menu = "";//Initialise var
@@ -66,8 +67,8 @@ function RenderMenu()
 // File Contents \\
 // ############# \\
 var content;
-// Get file contents
 
+// Get file contents
 function LoadPage(fpath)
 {
     fs.readFile(fpath, 'utf8', function(err, data)
@@ -77,8 +78,8 @@ function LoadPage(fpath)
         RenderPage();
     });
 }
-//Callbackfunction RenderLoadPage
 
+//Callbackfunction RenderLoadPage (pushes the built html onto page)
 function RenderPage()
 {
     $('<div id="content">' + content + "</div>").replaceAll("#content");
@@ -86,8 +87,8 @@ function RenderPage()
     //
     $(document).foundation();
 }
-//SetPage
 
+//Set current page and initate page load and render.
 function SetPage(pagename)
 {
     for (var i = 0; i < PagesList.length; i++)
