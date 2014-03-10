@@ -1,12 +1,11 @@
-var gui = require('nw.gui');//Require the NodeWebkit Gui Libary
-var fs = require('fs');//Require the Node FileSystem Libary
-var path = require('path');//Require the Node Path Libary
+var gui = require('nw.gui');
+var win = gui.Window.get();
+var fs = require('fs');
+var path = require('path');
+var PagesList = GetPagesList();
+var curPage = "Tutorial";
 
-var win = gui.Window.get();//Set the window variable for the current window
-var PagesList = GetPagesList();//Compile list of files in the "pages" folder and place in array for later use
-var curPage = "Tutorial";//Set the main or first page
-
-SetPage(curPage);//Load and display the first page, you can also set this to display the last page veiwed on last run.
+SetPage("Tutorial");
 
 //Get list of help pages and their titles base on file name
 function GetPagesList() {
@@ -21,7 +20,20 @@ function GetPagesList() {
 }
 function RenderMenu() {
 	var menu="";
-	menu += '<ul class="side-nav">';
+	menu += '<div class="show-for-small">';
+	menu += '<form><label>Choose an article:<select id="micromenu">';
+	for (var i=0; i<PagesList.length; i++) {
+		if (PagesList[i][1] == curPage) {
+			menu+='<option value="'+PagesList[i][1]+'" selected>';
+		} else {
+			menu+='<option value="'+PagesList[i][1]+'">';
+		}
+		menu+=PagesList[i][1];
+		menu+='</option>';
+	}
+	menu += '</select></label>';
+	menu += '</form></div>';
+	menu += '<ul class="side-nav hide-for-small">';
 	for (var i=0; i<PagesList.length; i++) {
 		if (PagesList[i][1] == curPage) {
 			menu+='<li class="active">';
@@ -52,6 +64,8 @@ function LoadPage(fpath) {
 function RenderPage() {
 	$('<div id="content">'+content+"</div>").replaceAll("#content");
 	$('<div id="menu">'+RenderMenu()+"</div>").replaceAll("#menu");
+	//
+	$(document).foundation();
 }
 //SetPage
 function SetPage (pagename) {
@@ -68,3 +82,9 @@ function SetPage (pagename) {
 onload = function() {
 	win.show();
 }
+//
+$(document).ready(function() {
+	$("#menuparent").on("change", "#micromenu", function(){
+    	SetPage(this.value );
+	});
+});
