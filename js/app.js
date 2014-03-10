@@ -1,9 +1,9 @@
-var gui = require('nw.gui');
-var win = gui.Window.get();
-var fs = require('fs');
-var path = require('path');
-var PagesList = GetPagesList();
-var curPage = "Tutorial";
+var gui = require('nw.gui'),
+win = gui.Window.get(),
+fs = require('fs'),
+path = require('path'),
+PagesList = GetPagesList(),
+curPage = "Tutorial";
 SetPage("Tutorial");
 
 //Get list of help pages and their titles base on file name
