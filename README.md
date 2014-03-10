@@ -3,6 +3,8 @@ NW-DesktopManual
 
 A node webkit application to make simple manuals and information displays.
 
+This image is out of date, Additional "small mode" menu has been added since this image:
+
 ![Image of the default theme of DesktopManual](https://alexhaslam.me/owncloud/public.php?service=files&t=5c0626bc01554dafffca6940d8c79252&download)
 
 A very basic set of code based on node-webkit and the foundation framework create crossplatform manuals, tools and displays that have no additional requirements.
