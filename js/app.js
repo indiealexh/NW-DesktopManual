@@ -2,6 +2,7 @@ var gui = require('nw.gui'),
 win = gui.Window.get(),
 fs = require('fs'),
 path = require('path'),
+markdown = require("markdown").markdown,
 PagesList = GetPagesList(),
 curPage = "Tutorial";
 SetPage("Tutorial");
@@ -15,7 +16,7 @@ function GetPagesList()
     {
         list[i] = []; // Initialise array item into 2D Array
         list[i][0] = files[i]; //filename
-        list[i][1] = files[i].slice(0, -4); //pagename
+        list[i][1] = files[i].replace(/\.[^\.]*$/,''); //pagename
     }
     return list;
 }
@@ -75,6 +76,8 @@ function LoadPage(fpath)
     {
         if (err) throw "Error Page Missing";
         content = data;
+        //check if file is markdown file format and convert to html if true.
+        if (fpath.match(/\.(md|markdown)$/)) content = markdown.toHTML(content);
         RenderPage();
     });
 }

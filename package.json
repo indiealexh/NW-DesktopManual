@@ -1,9 +1,9 @@
 {
   "main": "index.html",
-  "name": "I&E SO Manual",
+  "name": "nwdesktopmanual",
   "version": "0.1.0",
   "window": {
-    "title": "I&E SO Manual",
+    "title": "nwdesktopmanual",
     "toolbar": false,
     "frame": false,
     "width": 320,
@@ -11,5 +11,8 @@
     "min_width": 320,
     "min_height": 350,
     "show": false
+  },
+  "dependencies" : {
+    "markdown" : "0.5.x"
   }
 }
